@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<!-- Copyright 2013 Geoff Barnes -->
+
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>{Title}</title>
+        
+        <!--configurable options -->
+        <meta name="description" content="" />
+        <meta name="if:Show People I follow" content="1" />
+        <meta name="text:Following label" content="People I follow" />
+        <meta name="color:Body Background" content="" />
+        <meta name="color:Body Text" content="#666" />
+        <meta name="color:Link" content="#666" />
+        <meta name="color:Link Hover" content="#a60000" />
+        <meta name="image:Body Background Image" content="http://static.tumblr.com/o6knfw4/tKdmjmka5/paperbg.png" />
+        <meta name="color:Image Border" content="#fff" />
+        <meta name="color:Header Background" content="rgba(0, 0, 0, 0.08)" />       
+        <meta name="color:Menu Background" content="rgba(0, 0, 0, 0.1)" />
+        <meta name="color:Menu Background Hover" content="#a60000" />
+        <meta name="color:Menu Text" content="#666" />
+        <meta name="color:Menu Text Hover" content="#fff" />
+        <meta name="if:Stop Tiling BG Image" content="0" />  
+        <meta name="if:Freeze BG Image" content="0" />
+        <meta name="text:Copyright Owner" content="" />
+        <meta name="text:Google Analytics ID" content="" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+    
+        <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/oSDmjml1e/modernizr-2.6.1.min.js"></script>
+        <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/cwPmjmm7s/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/d0Kmjrh0w/jquery.fitvids.js"></script>
+
+      
+        <!--theme styles -->        
+        <style type="text/css">
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lora'), url(http://static.tumblr.com/o6knfw4/eLZmjnuqm/lora-regular.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lora Bold'), local('Lora-Bold'), url(http://static.tumblr.com/o6knfw4/6hsmjnuot/lora-bold.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lora Italic'), local('Lora-Italic'), url(http://static.tumblr.com/o6knfw4/kodmjnuq8/lora-italic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Lora Bold Italic'), local('Lora-BoldItalic'), url(http://static.tumblr.com/o6knfw4/H9Vmjnups/lora-bolditalic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Source Sans Pro ExtraLight'), local('SourceSansPro-ExtraLight'), url(http://static.tumblr.com/o6knfw4/9Nbmjnut6/sourcesanspro-extralight.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(http://static.tumblr.com/o6knfw4/yyamjnuuv/sourcesanspro-light.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(http://static.tumblr.com/o6knfw4/xmImjnuwb/sourcesanspro-regular.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(http://static.tumblr.com/o6knfw4/y4bmjnuwo/sourcesanspro-semibold.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(http://static.tumblr.com/o6knfw4/7hOmjnus5/sourcesanspro-bold.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(http://static.tumblr.com/o6knfw4/xiCmjnur3/sourcesanspro-black.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 200;
+  src: local('Source Sans Pro ExtraLight Italic'), local('SourceSansPro-ExtraLightIt'), url(http://static.tumblr.com/o6knfw4/4YVmjnutx/sourcesanspro-extralightitalic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Source Sans Pro Light Italic'), local('SourceSansPro-LightIt'), url(http://static.tumblr.com/o6knfw4/Nwkmjnuva/sourcesanspro-lightitalic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(http://static.tumblr.com/o6knfw4/bsxmjnuuf/sourcesanspro-italic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Source Sans Pro Semibold Italic'), local('SourceSansPro-SemiboldIt'), url(http://static.tumblr.com/o6knfw4/jIcmjnux3/sourcesanspro-semibolditalic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Source Sans Pro Bold Italic'), local('SourceSansPro-BoldIt'), url(http://static.tumblr.com/o6knfw4/mbGmjnusr/sourcesanspro-bolditalic.ttf) format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Source Sans Pro Black Italic'), local('SourceSansPro-BlackIt'), url(http://static.tumblr.com/o6knfw4/h9Pmjnuro/sourcesanspro-blackitalic.ttf) format('woff');
+}
+            
+			html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+			
+			html { line-height: 1; }
+			
+			ol, ul { list-style: none; }
+			
+			table { border-collapse: collapse; border-spacing: 0; }
+			
+			caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+			
+			q, blockquote { quotes: none; }
+			q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+			
+			a img { border: none; }
+			
+			article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+			
+			.span1, .span2, .span3, .span4, .span5, .span6, .span7, .span8, .span9, .span10, .span11, .span12 { float: left; width:100%; }
+			
+			@media screen and (min-width: 36em) { .col { margin-left: 3.5%; }
+			  .col:first-child { margin-left: 0; }
+			  .span1 { width: 5.125%; }
+			  .span2 { width: 13.75%; }
+			  .span3 { width: 22.375%; }
+			  .span4 { width: 31%; }
+			  .span5 { width: 39.625%; }
+			  .span6 { width: 48.25%; }
+			  .span7 { width: 56.875%; }
+			  .span8 { width: 65.5%; }
+			  .span9 { width: 74.125%; }
+			  .span10 { width: 82.75%; }
+			  .span11 { width: 91.375%; }
+			  .span12 { width: 100%; margin-left: 0; } }
+			#container, .inner { margin: 0 auto; }
+			
+			#container { clear: both; padding-top: 20px; }
+			
+			.alt { color: #fff; color: rgba(255, 255, 255, 0.9); letter-spacing: 0.05em; }
+			
+			ol#posts { list-style: none; }
+			
+			.metadata { font-size: .8em; }
+			
+			.tags, .source { display: block; line-height: 120%; font-size: .9em; font-style: italic; clear: both; }
+			
+			.permalinks { margin: .5em 0 6em 0; }
+			.permalinks a { display: inline-block; padding: 0 .5em; margin-right: .5em; }
+			
+			ol .notes li { margin-bottom: .8em; }
+			ol .notes li img { -moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px; }
+			
+			.post p a, .metadata p a { font-weight: 400; background-color: rgba(0, 0, 0, 0.08); -moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px; }
+			.post p a:hover, .metadata p a:hover { background-color: rgba(0, 0, 0, 0.04); }
+			
+			.post em { font-style: italic; }
+			
+			.post strong { font-weight: 600; }
+			
+			.post strikethru { text-decoration: line-through; }
+			
+			.text ul, .photo ul, .answer ul, .link ul, .quote ul { margin-left: 1.4em; margin-bottom: 1em; list-style: disc; }
+			
+			.text ol, .photo ol, .answer ol, .link ol, .quote ol { margin-left: 1.4em; margin-bottom: 1em; list-style: decimal; }
+			
+			blockquote { margin-left: 1px; border-left: 2px dotted #999999; padding-left: 20px; }
+			@media screen and (max-width: 36em) { blockquote { padding-left: 12px; } }
+			
+			.text h3, .chat h3, .answer h3 { font-weight: 600; font-size: 2em; line-height: 120%; margin-bottom: .34em; }
+			.text h3 a, .chat h3 a, .answer h3 a { font-weight: 600; }
+			@media screen and (max-width: 36em) { .text h3, .chat h3, .answer h3 { font-size: 1.4em; line-height: 120%; } }
+			
+			.answer h3 { vertical-align: middle; }
+			.answer img { -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; vertical-align: middle; margin-bottom: .1em; }
+			
+			.audio .caption, .video .caption { margin-top: .5em; }
+			
+			.photoset .caption { margin-top: -0.5em; }
+			
+			.text img, .photo img, .panorama img, .quote img, .link img { display: block; width: 94%; padding: 3%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
+			
+			.photoset, .audio, .video { width: 100%; margin: 0 auto .5em auto; }
+			
+			.quote .quotation { display: block; padding: 4%; background-color: rgba(255, 255, 255, 0.7); margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); font-family: "Lora", serif; font-style: italic; color: #666666; }
+			.quote .short { font-size: 3em; line-height: 130%; }
+			.quote .medium { font-size: 2em; line-height: 150%; }
+			.quote .long { font-size: 1.4em; line-height: 150%; }
+			.quote .quotesource { display: block; margin-top: 2em; }
+			
+			.link .link-title { display: block; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; padding: .8em; margin-bottom: .5em; font-size: 1.2em; }
+			.link a { background-color: rgba(0, 0, 0, 0.08); }
+			.link a:hover { background-color: rgba(0, 0, 0, 0.05); }
+			
+			.chat ul { margin-bottom: 1.5em; }
+			.chat li { margin-bottom: .5em; }
+			.chat .label { font-weight: 500; }
+			.chat .even, .chat .odd { margin-bottom: .8em; }
+			.chat .user_1 .label, .chat .user_3 .label, .chat .user_5 .label, .chat .user_7 .label, .chat .user_9 .label { display: block; max-width: 26%; float: left; -moz-border-radius: 5px 0 0 5px; -webkit-border-radius: 5px 0 0 5px; -ms-border-radius: 5px 0 0 5px; border-radius: 5px 0 0 5px; padding: .5em 3%; text-align: right; }
+			.chat .user_1 .label-tall, .chat .user_3 .label-tall, .chat .user_5 .label-tall, .chat .user_7 .label-tall, .chat .user_9 .label-tall { -moz-border-radius: 5px 0 5px 5px; -webkit-border-radius: 5px 0 5px 5px; -ms-border-radius: 5px 0 5px 5px; border-radius: 5px 0 5px 5px; }
+			.chat .user_1 .line, .chat .user_3 .line, .chat .user_5 .line, .chat .user_7 .line, .chat .user_9 .line { display: block; max-width: 60%; float: left; padding: .5em 4%; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; -ms-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; }
+			.chat .user_1 .line-tall, .chat .user_3 .line-tall, .chat .user_5 .line-tall, .chat .user_7 .line-tall, .chat .user_9 .line-tall { -moz-border-radius: 0 5px 5px 5px; -webkit-border-radius: 0 5px 5px 5px; -ms-border-radius: 0 5px 5px 5px; border-radius: 0 5px 5px 5px; }
+			.chat .user_2 .label, .chat .user_4 .label, .chat .user_6 .label, .chat .user_8 .label, .chat .user_10 .label { display: block; max-width: 26%; float: right; -moz-border-radius: 0 5px 5px 0; -webkit-border-radius: 0 5px 5px 0; -ms-border-radius: 0 5px 5px 0; border-radius: 0 5px 5px 0; padding: .5em 3%; text-align: left; }
+			.chat .user_2 .label-tall, .chat .user_4 .label-tall, .chat .user_6 .label-tall, .chat .user_8 .label-tall, .chat .user_10 .label-tall { -moz-border-radius: 0 5px 5px 5px; -webkit-border-radius: 0 5px 5px 5px; -ms-border-radius: 0 5px 5px 5px; border-radius: 0 5px 5px 5px; }
+			.chat .user_2 .line, .chat .user_4 .line, .chat .user_6 .line, .chat .user_8 .line, .chat .user_10 .line { display: block; max-width: 60%; float: right; padding: .5em 4%; -moz-border-radius: 5px 0 0 5px; -webkit-border-radius: 5px 0 0 5px; -ms-border-radius: 5px 0 0 5px; border-radius: 5px 0 0 5px; }
+			.chat .user_2 .line-tall, .chat .user_4 .line-tall, .chat .user_6 .line-tall, .chat .user_8 .line-tall, .chat .user_10 .line-tall { -moz-border-radius: 5px 0 5px 5px; -webkit-border-radius: 5px 0 5px 5px; -ms-border-radius: 5px 0 5px 5px; border-radius: 5px 0 5px 5px; }
+			.chat .user_1 .label, .chat .user_6 .label { background-color: rgba(99, 114, 161, 0.5); }
+			.chat .user_1 .line, .chat .user_6 .line { background-color: rgba(99, 114, 161, 0.2); }
+			.chat .user_2 .label, .chat .user_7 .label { background-color: rgba(153, 192, 106, 0.6); }
+			.chat .user_2 .line, .chat .user_7 .line { background-color: rgba(153, 192, 106, 0.3); }
+			.chat .user_3 .label, .chat .user_8 .label { background-color: rgba(184, 140, 140, 0.6); }
+			.chat .user_3 .line, .chat .user_8 .line { background-color: rgba(184, 140, 140, 0.3); }
+			.chat .user_4 .label, .chat .user_9 .label { background-color: rgba(182, 163, 97, 0.6); }
+			.chat .user_4 .line, .chat .user_9 .line { background-color: rgba(182, 163, 97, 0.3); }
+			.chat .user_5 .label, .chat user_10 .label { background-color: rgba(153, 91, 173, 0.5); }
+			.chat .user_5 .line, .chat user_10 .line { background-color: rgba(153, 91, 173, 0.2); }
+			
+			.max-width { max-width: 50em; margin: 0 auto; }
+			@media screen and (max-width: 52em) { .max-width { margin: 0 1em; } }
+			
+			.page { margin-top: 3em; margin-bottom: 1em; }
+			@media screen and (max-width: 36em) { .page { margin-top: 2em; } }
+			
+			.pagination, aside { margin-bottom: 2.2em; }
+			
+			@media screen and (width: 320px) { .h-scroll { overflow-x: scroll; } }
+			
+			body { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: "SourceSansPro", sans-serif; color: {color:Body Text}; font-weight: 300; line-height: 160%; background-image: url("{image:Body Background Image}"); {block:IfStopTilingBGImage}background-repeat: no-repeat;{/block:IfStopTilingBGImage} {block:IfFreezeBGImage}background-attachment:fixed;{/block:IfFreezeBGImage} background-color: {color:Body Background}; }
+			@media screen and (max-width: 52em) { body { line-height: 140%; } }
+			
+			p { margin-bottom: 1em; }
+			
+			a { text-decoration: none; color: {color:Link}; -moz-transition: 0.075s ease-in-out; -o-transition: 0.075s ease-in-out; -webkit-transition: 0.075s ease-in-out; transition: 0.075s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
+			
+			a:hover { color:{color:Link Hover}; }
+			
+			.alignright { float: right; }
+			
+			.alignleft { float: left; }
+			
+			.clearfix { clear: both; visibility: hidden; margin-before: 0; margin-after: 0; border-width: 0; -webkit-margin-before: 0; -webkit-margin-after: 0; }
+			
+			header { background-color: {color:Header Background}; -webkit-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -moz-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -o-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: 2.2em; line-height: 100%; }
+			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: 4.4em; } }
+			
+			footer { background-color: #666666; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
+			footer p { margin-bottom: 0; color: #cccccc; font-size: .8em; float: left; }
+			footer a { font-size: .8em; float: right; color: #cccccc; }
+			@media screen and (min-width: 36em) { footer { position: relative; clear: both; height: 44px; }
+			  footer a { display: none; visibility: hidden; } }
+			
+			@media screen and (max-width: 36em) { #description { padding: 16px; background-color: rgba(255, 255, 255, 0.4); box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.9); } }
+			#description p { font-size: .9em; line-height: 150%; color: #666666; }
+			@media screen and (max-width: 36em) { #description p { line-height: 130%; margin-bottom: .5em; } }
+			#description img { display: inline-block; float: left; margin: 0 .5em 0 0; width: 64px; }
+			
+			nav { margin: 1.75em 0 2em 0; }
+			
+			nav ul li a { list-style: none; display: block; padding: 4px 16px; -moz-border-radius: 8px; -webkit-border-radius: 8px; -ms-border-radius: 8px; border-radius: 8px; margin: .5em 0; color: {color:Menu Text}; text-decoration: none; background-color: {color:Menu Background}; }
+			nav ul li a:hover { background-color: {color:Menu Background Hover}; color:{color:Menu Text Hover}; }
+			@media screen and (max-width: 36em) { nav ul li a { -moz-border-radius: 0px; -webkit-border-radius: 0px; -ms-border-radius: 0px; border-radius: 0px; padding: 10px 16px; } }
+			
+			a.menu-link { display: inline-block; float: right; clear: right; margin: .2em 0 .7em auto; -webkit-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), inset 0px 1px 1px rgba(255, 255, 255, 0.7), 0px 1px 1px rgba(255, 255, 255, 0.7), 0px -1px 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), inset 0px 1px 1px rgba(255, 255, 255, 0.7), 0px 1px 1px rgba(255, 255, 255, 0.7), 0px -1px 1px rgba(0, 0, 0, 0.1); -o-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), inset 0px 1px 1px rgba(255, 255, 255, 0.7), 0px 1px 1px rgba(255, 255, 255, 0.7), 0px -1px 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), inset 0px 1px 1px rgba(255, 255, 255, 0.7), 0px 1px 1px rgba(255, 255, 255, 0.7), 0px -1px 1px rgba(0, 0, 0, 0.1); color: #888888; border: 1px solid #999999; padding: 2px 5px 1px 5px; text-align: center; text-decoration: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; }
+			
+			a.menu-link:hover { background-color: rgba(255, 255, 255, 0.3); }
+			
+			#searchbox { display: block; width: 88%; padding: .1875em .8em; margin: 1.5em auto .25em auto; font-size: .9em; height: 1.6em; color: #aaaaaa; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; border: none; -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); }
+			@media screen and (max-width: 36em) { #searchbox { width: 92%; } }
+			
+			#searchbutton { display: none; visibility: hidden; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); padding: .1875em .8em; font-family: "SourceSansPro", sans-serif; font-size: .92em; height: auto; color: #666666; border: none; background-color: rgba(0, 0, 0, 0.1); -moz-transition: 0.075s ease-in-out; -o-transition: 0.075s ease-in-out; -webkit-transition: 0.075s ease-in-out; transition: 0.075s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
+			#searchbutton:hover { background-color: #a60000; color: white; }
+			
+			.following { width: 100%; margin-bottom: 1em; }
+			.following img { -moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px; float: left; margin: 0 1.6% .25em 0; }
+			@media screen and (max-width: 36em) { .following { display: none; visibility: hidden; } }
+			
+			.followed img { width: 15%; }
+			
+			.pagination a { display: block; padding: .5em .8em; background-color: rgba(0, 0, 0, 0.07); font-weight: 400; font-size: .9em; color: #888888; text-decoration: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; -moz-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; -webkit-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
+			
+			.pagination a:hover { color: #666666; background-color: rgba(0, 0, 0, 0.1); box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); }
+			
+		{CustomCSS}
+        
+        </style>
+        <!-- end theme styles -->    
+            
+    </head>
+
+    <body>  
+        <header>
+            <div class="max-width">
+                <h1 class="title"><a href="/">{Title}</a></h1>
+            </div>
+            <hr class="clearfix" />        		   		
+		</header>
+        
+	<div class="max-width page">
+	    
+	    <section class="col span8">
+
+            <ol id="posts">
+                {block:Posts}
+
+                {block:Text} 
+	                <li class="post text">
+	                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        {Body}
+	                </li>
+                {/block:Text}
+                
+                
+                {block:Photo}
+                    <li class="post photo">
+                        <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}              
+                    </li>	            
+                {/block:Photo}  	
+
+                {block:Panorama}
+                    <li class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}                                              
+                    </li>
+                {/block:Panorama}
+
+                
+                {block:Photoset}
+                    <li class="post photoset">                
+                        <div class="h-scroll">{Photoset-500}</div>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption} 
+                    </li>
+                {/block:Photoset}
+
+
+                {block:Quote}
+                    <li class="post quote">
+                        <span class="{Length} quotation">{Quote}</span>
+                        {block:Source}
+                            <div class="quotesource">{Source}</div>
+                        {/block:Source}                        
+                    </li>
+                {/block:Quote}
+
+                {block:Link}
+                    <li class="post link">
+                        <a href="{URL}" {Target} class="link-title">{Name}</a>
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}                        
+                    </li>
+                {/block:Link}
+
+                {block:Chat}
+                    <li class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <div class="label">{Label}</div>
+                                    {/block:Label}
+
+                                    <div class="line">{Line}</div>
+                                
+                                <hr class="clearfix">                                    
+                                </li>                             
+                            {/block:Lines}                      
+                        <hr class="clearfix">    
+                        </ul>                        
+                    </li>
+                {/block:Chat}
+
+                {block:Video}
+                    <li class="post video">
+                        <div class="fitvids">{VideoEmbed-250}</div>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}        
+                    </li>
+                {/block:Video}
+
+                {block:Audio}
+                    <li class="post audio">
+                        <div>{AudioPlayer}</div>
+                        <div class="fitauds">{AudioEmbed}</div>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}                          
+                    </li>
+                {/block:Audio}
+                
+                {block:Answer}
+                    <li class="post answer">
+                        <div>
+                            <h3><img src="{AskerPortraitURL-30}"/>
+                            {Asker} wrote...</h3>
+                        </div>
+                        <blockquote>
+                        {Question}
+                        </blockquote>
+                        <p class="answer">
+                        {Answer}
+                        </p>
+                {/block:Answer}                
+                
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+	            	</p>
+                    <!--tags-->                        
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+		            </p>
+                    {block:PostNotes}
+                    	{PostNotes}
+                    {/block:PostNotes} 
+	            </div>
+                <!--end metadata-->                
+                
+             {/block:Posts}
+            </ol>
+            <hr class="clearfix" />
+       
+
+
+        
+            <div class="pagination">
+				 {block:PreviousPage}
+				     <a class="alignleft" href="{PreviousPage}">&#171; Newer Posts</a>
+				 {/block:PreviousPage}
+				
+				 {block:NextPage}
+				     <a class="alignright" href="{NextPage}">Older Posts &#187;</a>
+				 {/block:NextPage}
+				<hr class="clearfix" />
+
+			</div>              
+	       
+	    </section>
+	    
+	    
+        <!--begin blog title and description -->
+		<aside class="col span4">
+
+		    <!--description-->
+		    <section id="description">
+
+		        <img src="{PortraitURL-128}"/>
+
+		        {block:Description}
+		        {Description}
+		        {block:Description}
+                <hr class="clearfix" />
+		    </section>
+            <hr class="clearfix" />
+
+    	    <!--search-->
+		    <form action="/search" method="get">
+            
+		        <input id="searchbox" type="text" name="q" value="{lang:Search}" onFocus="if(this.value == '{lang:Search}') {this.value = '';}" onBlur="if (this.value == '') {this.value = '{lang:Search}';}"/>
+		        <input id="searchbutton" type="submit" value="{lang:Search}"/>
+		    </form>
+            <hr class="clearfix" />
+            
+            <!--pages-->
+		    <nav id="menu">
+		        <ul>
+		            {block:HasPages}
+		            {block:Pages}
+		            <li> <a href="{URL}">{Label}</a></li>
+		            {/block:Pages}
+		            {/block:HasPages}
+		            {block:SubmissionsEnabled}
+		            <li> <a href="/submit">{SubmitLabel}</a></li>
+		            {/block:SubmissionsEnabled}
+		            {block:AskEnabled}
+		            <li> <a href="/ask">{AskLabel}</a></li>
+		            {/block:AskEnabled}
+                    <li> <a href="/archive">{lang:Archive}</a></li>  
+		        </ul>
+		    </nav>			
+            <hr class="clearfix" />
+            
+            <!-- people I follow -->
+            <div class="following">
+                {block:IfShowPeopleIFollow}
+                    <p>{text:Following label}</p>
+                    {block:Following}
+                        {block:Followed}
+                        <div class="followed">
+                            <a href="{FollowedURL}"><img src="{FollowedPortraitURL-40}"></a>    
+                        </div>
+                        {/block:Followed}
+                    {/block:Following}
+                {/block:IfShowPeopleIFollow}
+            </div>
+                
+            </div>
+		</aside>
+		<!-- end tumblr blog title and description -->	
+        
+        
+    </div>	      
+	
+	<footer>
+		<div class="max-width">
+			<p class="copyright">Copyright {text:Copyright Owner} {CopyrightYears}             </p><a class="right" href="#menu">Menu</a>
+
+		</div>
+	</footer>
+
+	<script>
+	    $(document).ready(function () {
+	        
+            //fitvids
+            $(".fitvids").fitVids();
+            $(".fitauds").fitVids();
+
+            //curves for tallest chat part
+            $('ul.chat li').each(function(){
+                var lHeight = $(this).children('.label').height();
+                var mHeight = $(this).children('.line').height();
+                if (lHeight > mHeight) {
+                    $(this).children('.label').addClass('label-tall');
+                }
+                if (lHeight < mHeight) {
+                    $(this).children('.line').addClass('line-tall');
+                }
+            });
+            
+            //colonectomy
+            $('ul.chat li .label').each(function(){
+                $(this).text($(this).text().replace(':',''));
+            });
+            
+	    });
+
+	</script>
+    
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', '{text:Google Analytics ID}']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+    </script>
+	
+    </body>
+</html>
