@@ -4,7 +4,13 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-<!-- Copyright 2013 Geoff Barnes -->
+<!--
+Version 1.02
+The Pragmatist - a responsive theme for Tumblr
+Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
+
+Feature requests, bug reports, updates, and release notes at http://pragmatist-theme.tumblr.com    
+-->
 
 <head>
         <meta charset="utf-8" />
@@ -13,8 +19,11 @@
         
         <!--configurable options -->
         <meta name="description" content="" />
-        <meta name="if:Show People I follow" content="1" />
+        <meta name="if:Show Following" content="1" />
+        <meta name="if:Hide Following on Smaller Screens" content="0" />
         <meta name="text:Following label" content="People I follow" />
+        <meta name="text:H1 Bigger Screens" content="4.4em" />
+        <meta name="text:H1 Littler Screens" content="2.2em" />
         <meta name="color:Body Background" content="" />
         <meta name="color:Body Text" content="#666" />
         <meta name="color:Link" content="#666" />
@@ -28,6 +37,7 @@
         <meta name="color:Menu Text Hover" content="#fff" />
         <meta name="if:Stop Tiling BG Image" content="0" />  
         <meta name="if:Freeze BG Image" content="0" />
+        <meta name="if:Hide Footer" content="0" />
         <meta name="text:Copyright Owner" content="" />
         <meta name="text:Google Analytics ID" content="" />
         
@@ -143,7 +153,7 @@
   src: local('Source Sans Pro Black Italic'), local('SourceSansPro-BlackIt'), url(http://static.tumblr.com/o6knfw4/h9Pmjnuro/sourcesanspro-blackitalic.ttf) format('woff');
 }
             
-			html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+    		html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
 			
 			html { line-height: 1; }
 			
@@ -284,9 +294,13 @@
 			.clearfix { clear: both; visibility: hidden; margin-before: 0; margin-after: 0; border-width: 0; -webkit-margin-before: 0; -webkit-margin-after: 0; }
 			
 			header { background-color: {color:Header Background}; -webkit-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -moz-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -o-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
-			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: 2.2em; line-height: 100%; }
-			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: 4.4em; } }
+			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: {text:H1 Littler Screens}; line-height: 100%; overflow:hidden; }
+			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: {text:H1 Bigger Screens}; } }
 			
+            {block:IfHideFooter}
+            footer { display:none; visibility:hidden; }
+            {/block:IfHideFooter}
+            
 			footer { background-color: #666666; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
 			footer p { margin-bottom: 0; color: #cccccc; font-size: .8em; float: left; }
 			footer a { font-size: .8em; float: right; color: #cccccc; }
@@ -316,8 +330,9 @@
 			
 			.following { width: 100%; margin-bottom: 1em; }
 			.following img { -moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px; float: left; margin: 0 1.6% .25em 0; }
+            {block:IfHideFollowingOnSmallerScreens}
 			@media screen and (max-width: 36em) { .following { display: none; visibility: hidden; } }
-			
+			{/block:IfHideFollowingOnSmallerScreens}
 			.followed img { width: 15%; }
 			
 			.pagination a { display: block; padding: .5em .8em; background-color: rgba(0, 0, 0, 0.07); font-weight: 400; font-size: .9em; color: #888888; text-decoration: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; -moz-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; -webkit-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
@@ -557,7 +572,7 @@
             
             <!-- people I follow -->
             <div class="following">
-                {block:IfShowPeopleIFollow}
+                {block:IfShowFollowing}
                     <p>{text:Following label}</p>
                     {block:Following}
                         {block:Followed}
@@ -566,7 +581,7 @@
                         </div>
                         {/block:Followed}
                     {/block:Following}
-                {/block:IfShowPeopleIFollow}
+                {/block:IfShowFollowing}
             </div>
                 
             </div>
