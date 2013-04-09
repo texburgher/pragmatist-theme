@@ -5,10 +5,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.02
+Version 1.03
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
-
+Social icons are CC-Attrib; attrib to http://fairheadcreative.com
 Feature requests, bug reports, updates, and release notes at http://pragmatist-theme.tumblr.com    
 -->
 
@@ -37,9 +37,44 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="color:Menu Text Hover" content="#fff" />
         <meta name="if:Stop Tiling BG Image" content="0" />  
         <meta name="if:Freeze BG Image" content="0" />
-        <meta name="if:Hide Footer" content="0" />
+        <meta name="if:Show Footer" content="1" />
         <meta name="text:Copyright Owner" content="" />
         <meta name="text:Google Analytics ID" content="" />
+        <meta name="if:Pimp This Theme" content="1" />
+        <meta name="if:Show Social Accounts" content="1" />
+        
+        <meta name="text:Social Label" content="Elsewhere Online" />
+        <meta name="text:AboutMe URL" content="" />
+        <meta name="text:ADN URL" content="" />        
+        <meta name="text:Behance URL" content="" />
+        <meta name="text:Dribbble URL" content="" /> 
+        <meta name="text:Facebook URL" content="" />
+        <meta name="text:Flickr URL" content="" />
+        <meta name="text:Foursquare URL" content="" />
+        <meta name="text:GitHub URL" content="" />
+        <meta name="text:Google Plus URL" content="" />
+        <meta name="text:Instagram URL" content="" />
+        <meta name="text:LastFM URL" content="" />
+        <meta name="text:LinkedIn URL" content="" />
+        <meta name="text:Orkut URL" content="" />
+        <meta name="text:Pinterest URL" content="" />
+        <meta name="text:PocketApp URL" content="" />
+        <meta name="text:Quora URL" content="" />
+        <meta name="text:Rdio URL" content="" />
+        <meta name="text:Skitch URL" content="" />
+        <meta name="text:Skype URL" content="" />
+        <meta name="text:Spotify URL" content="" />
+        <meta name="text:Stack Overflow URL" content="" />
+        <meta name="text:Stumble Upon URL" content="" />        
+        <meta name="text:Tent URL" content="" />
+        <meta name="text:Trip Advisor URL" content="" />
+        <meta name="text:Twitter URL" content="" /> 
+        <meta name="text:Vimeo URL" content="" />
+        <meta name="text:Yelp URL" content="" />
+        <meta name="text:YouTube URL" content="" />
+        <meta name="text:Zerply URL" content="" />
+
+        
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="{Favicon}">
@@ -153,9 +188,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
   src: local('Source Sans Pro Black Italic'), local('SourceSansPro-BlackIt'), url(http://static.tumblr.com/o6knfw4/h9Pmjnuro/sourcesanspro-blackitalic.ttf) format('woff');
 }
             
-    		html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
-			
-			html { line-height: 1; }
+            html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+            
+    		html { line-height: 1; }
 			
 			ol, ul { list-style: none; }
 			
@@ -231,7 +266,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			.photoset .caption { margin-top: -0.5em; }
 			
-			.text img, .photo img, .panorama img, .quote img, .link img { display: block; width: 94%; padding: 3%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
+			.text img, .photo img, .panorama img, .quote img, .link img { display: block; width:94%; padding: 3%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
 			
 			.photoset, .audio, .video { width: 100%; margin: 0 auto .5em auto; }
 			
@@ -296,10 +331,6 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			header { background-color: {color:Header Background}; -webkit-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -moz-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -o-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
 			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: {text:H1 Littler Screens}; line-height: 100%; overflow:hidden; }
 			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: {text:H1 Bigger Screens}; } }
-			
-            {block:IfHideFooter}
-            footer { display:none; visibility:hidden; }
-            {/block:IfHideFooter}
             
 			footer { background-color: #666666; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
 			footer p { margin-bottom: 0; color: #cccccc; font-size: .8em; float: left; }
@@ -312,7 +343,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			@media screen and (max-width: 36em) { #description p { line-height: 130%; margin-bottom: .5em; } }
 			#description img { display: inline-block; float: left; margin: 0 .5em 0 0; width: 64px; }
 			
-			nav { margin: 1.75em 0 2em 0; }
+			nav { margin: 2em 0 0 0; }
 			
 			nav ul li a { list-style: none; display: block; padding: 4px 16px; -moz-border-radius: 8px; -webkit-border-radius: 8px; -ms-border-radius: 8px; border-radius: 8px; margin: .5em 0; color: {color:Menu Text}; text-decoration: none; background-color: {color:Menu Background}; }
 			nav ul li a:hover { background-color: {color:Menu Background Hover}; color:{color:Menu Text Hover}; }
@@ -322,13 +353,23 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			a.menu-link:hover { background-color: rgba(255, 255, 255, 0.3); }
 			
-			#searchbox { display: block; width: 88%; padding: .1875em .8em; margin: 1.5em auto .25em auto; font-size: .9em; height: 1.6em; color: #aaaaaa; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; border: none; -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); }
+			#searchbox { display: block; width: 88%; padding: .1875em .8em; margin: 1em auto .25em auto; font-size: .9em; height: 1.6em; color: #aaaaaa; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; border: none; -webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.75); -o-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.75); }
 			@media screen and (max-width: 36em) { #searchbox { width: 92%; } }
 			
 			#searchbutton { display: none; visibility: hidden; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); padding: .1875em .8em; font-family: "SourceSansPro", sans-serif; font-size: .92em; height: auto; color: #666666; border: none; background-color: rgba(0, 0, 0, 0.1); -moz-transition: 0.075s ease-in-out; -o-transition: 0.075s ease-in-out; -webkit-transition: 0.075s ease-in-out; transition: 0.075s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
 			#searchbutton:hover { background-color: #a60000; color: white; }
 			
-			.following { width: 100%; margin-bottom: 1em; }
+            #description { margin-bottom:2em; }
+            
+            #themepimp { display:block; margin:2em 0; }
+            @media screen and (min-width: 36em) { 
+                #themepimp img { width:100%;}
+            }
+
+    		.social { width:90%; padding: 5% 5% 2.15% 5%; margin:2em 0; background-color:rgba(0,0,0,.1); -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; }
+			.social img { float: left; margin:0 3.15% 3.15% 0; }
+
+			.following { width: 100%; margin:2em 0; }
 			.following img { -moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; border-radius: 2px; float: left; margin: 0 1.6% .25em 0; }
             {block:IfHideFollowingOnSmallerScreens}
 			@media screen and (max-width: 36em) { .following { display: none; visibility: hidden; } }
@@ -474,6 +515,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         <p class="answer">
                         {Answer}
                         </p>
+                    </li>
                 {/block:Answer}                
                 
                 <!--begin metadata -->                            
@@ -543,16 +585,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 		    </section>
             <hr class="clearfix" />
 
-    	    <!--search-->
-		    <form action="/search" method="get">
-            
-		        <input id="searchbox" type="text" name="q" value="{lang:Search}" onFocus="if(this.value == '{lang:Search}') {this.value = '';}" onBlur="if (this.value == '') {this.value = '{lang:Search}';}"/>
-		        <input id="searchbutton" type="submit" value="{lang:Search}"/>
-		    </form>
-            <hr class="clearfix" />
-            
+            <div name="site navigation">            
             <!--pages-->
-		    <nav id="menu">
+    	    <nav id="menu">
 		        <ul>
 		            {block:HasPages}
 		            {block:Pages}
@@ -570,10 +605,145 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 		    </nav>			
             <hr class="clearfix" />
             
-            <!-- people I follow -->
-            <div class="following">
-                {block:IfShowFollowing}
-                    <p>{text:Following label}</p>
+            <!--search-->
+		    <form action="/search" method="get">
+            
+		        <input id="searchbox" type="text" name="q" value="{lang:Search}" onFocus="if(this.value == '{lang:Search}') {this.value = '';}" onBlur="if (this.value == '') {this.value = '{lang:Search}';}"/>
+		        <input id="searchbutton" type="submit" value="{lang:Search}"/>
+		    </form>
+            <hr class="clearfix" />
+            </div>
+            
+            
+
+            {block:IfShowSocialAccounts} <!--social-->
+                <div class="social">
+                {text:Social Label}
+                    <ul>
+                        {block:IfAboutMeURL}
+                        <li><a href="{text:AboutMe URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-aboutme-m.png" /></a></li>
+                        {/block:IfAboutMeURL}  
+
+                        {block:IfADNURL}
+                        <li><a href="{text:ADN URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-adn-m.png" /></a></li>
+                        {/block:IfADNURL}         
+
+                        {block:IfBehanceURL}
+                        <li><a href="{text:Behance URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-behance-m.png" /></a></li>
+                        {/block:IfBehanceURL}  
+
+                        {block:IfDribbbleURL}
+                        <li><a href="{text:Dribbble URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-dribbble-m.png" /></a></li>
+                       {/block:IfDribbbleURL}    
+                
+                        {block:IfFacebookURL}
+                        <li><a href="{text:Facebook URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-facebook-m.png" /></a></li>
+                        {/block:IfFacebookURL}  
+
+                        {block:IfFlickrURL}
+                        <li><a href="{text:Flickr URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-flickr-m.png" /></a></li>
+                        {/block:IfFlickURL}
+
+                        {block:IfFoursquareURL}
+                        <li><a href="{text:Foursquare URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-foursquare-m.png" /></a></li>
+                        {/block:IfFoursquareURL}  
+                        
+                        {block:IfGitHubURL}
+                        <li><a href="{text:GitHub URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-github-m.png" /></a></li>
+                        {/block:IfGitHubURL}         
+                        
+                        {block:IfGooglePlusURL}
+                        <li><a href="{text:Google Plus URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-googleplus-m.png" /></a></li>
+                        {/block:IfGooglePlusURL}                          
+                        
+                        {block:IfInstagramURL}
+                        <li><a href="{text:Instagram URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-instagram-m.png" /></a></li>
+                        {/block:IfInstagramURL}                          
+                        
+                        {block:IfLastFMURL}
+                        <li><a href="{text:LastFM URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-lastfm-m.png" /></a></li>
+                        {/block:IfLastFMURL}                          
+                        
+                        {block:IfLinkedInURL}
+                        <li><a href="{text:LinkedIn URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-linkedin-m.png" /></a></li>
+                        {/block:IfLinkedInURL}                          
+                        
+                        {block:IfOrkutURL}
+                        <li><a href="{text:Orkut URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-orkut-m.png" /></a></li>
+                        {/block:IfOrkutURL}                          
+                        
+                        {block:IfPinterestURL}
+                        <li><a href="{text:Pinterest URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-pinterest-m.png" /></a></li>
+                        {/block:IfPinterestURL}                          
+                        
+                        {block:IfPocketAppURL}
+                        <li><a href="{text:PocketApp URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-pocketapp-m.png" /></a></li>
+                        {/block:IfPocketAppURL}                          
+                        
+                        {block:IfQuoraURL}
+                        <li><a href="{text:Quora URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-quora-m.png" /></a></li>
+                        {/block:IfQuoraURL}                          
+                        
+                        {block:IfRdioURL}
+                        <li><a href="{text:Rdio URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-rdio-m.png" /></a></li>
+                        {/block:IfRdioURL}                          
+                        
+                        {block:IfSkitchURL}
+                        <li><a href="{text:Skitch URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-skitch-m.png" /></a></li>
+                        {/block:IfSkitchURL}                         
+                        
+                        {block:IfSkypeURL}
+                        <li><a href="{text:Skype URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-skype-m.png" /></a></li>
+                        {/block:IfSkypeURL}                         
+                        
+                        {block:IfSpotifyURL}
+                        <li><a href="{text:Spotify URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-spotify-m.png" /></a></li>
+                        {/block:IfSpotifyURL} 
+                        
+                        {block:IfStackOverflowURL}
+                        <li><a href="{text:Stack Overflow URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-stackoverflow-m.png" /></a></li>
+                        {/block:IfStackOverflowURL}                         
+                        
+                        {block:IfStumbleUponURL}
+                        <li><a href="{text:Stumble Upon URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-stumbleupon-m.png" /></a></li>
+                        {/block:IfStumbleUponURL}                         
+                        
+                        {block:IfTentURL}
+                        <li><a href="{text:Tent URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-tent-m.png" /></a></li>
+                        {/block:IfTentURL}                         
+                        
+                        {block:IfTripAdvisorURL}
+                        <li><a href="{text:Trip Advisor URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-tripadvisor-m.png" /></a></li>
+                        {/block:IfTripAdvisorURL}                          
+                        
+                        {block:IfTwitterURL}
+                        <li><a href="{text:Twitter URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-twitter-m.png" /></a></li>
+                        {/block:IfTwitterURL}                          
+                        
+                        {block:IfVimeoURL}
+                        <li><a href="{text:Vimeo URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-vimeo-m.png" /></a></li>
+                        {/block:IfVimeoURL}                          
+                        
+                        {block:IfYelpURL}
+                        <li><a href="{text:Yelp URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-yelp-m.png" /></a></li>
+                        {/block:IfYelpURL}                          
+                        
+                        {block:IfYouTubeURL}
+                        <li><a href="{text:YouTube URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-youtube-m.png" /></a></li>
+                        {/block:IfYouTubeURL}  
+                        
+                        {block:IfZerplyURL}
+                        <li><a href="{text:Zerply URL}"><img src="http://texburgher.com/images/social-icons/fc-webicon-zerply-m.png" /></a></li>
+                        {/block:IfZerplyURL}  
+                    </ul>
+                    <hr class="clearfix" />
+                </div>
+            {/block:IfShowSocialAccounts}
+            
+
+            {block:IfShowFollowing} <!-- people I follow -->
+                <div class="following">
+                    {text:Following label}
                     {block:Following}
                         {block:Followed}
                         <div class="followed">
@@ -581,22 +751,34 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         </div>
                         {/block:Followed}
                     {/block:Following}
-                {/block:IfShowFollowing}
-            </div>
+                <hr class="clearfix" />
+                </div>
+            {/block:IfShowFollowing}
+
+
+            {block:IfPimpThisTheme} <!-- theme plug -->
+                <div id="themepimp">
+                    <a href="http://pragmatist-theme.tumblr.com/download"><strong>Do you like my theme?</strong><br /><img src="http://static.tumblr.com/o6knfw4/OTqmk0x8d/pimp-my-theme.png" /><br />Go on. Take it. It's free.
+                    </a>
+                </div>
+                <hr class="clearfix" />
+            {/block:IfPimpThisTheme}   
+            
                 
-            </div>
 		</aside>
 		<!-- end tumblr blog title and description -->	
         
         
     </div>	      
 	
+	{block:IfShowFooter}
 	<footer>
 		<div class="max-width">
 			<p class="copyright">Copyright {text:Copyright Owner} {CopyrightYears}             </p><a class="right" href="#menu">Menu</a>
 
 		</div>
 	</footer>
+	{/block:IfShowFooter}
 
 	<script>
 	    $(document).ready(function () {
