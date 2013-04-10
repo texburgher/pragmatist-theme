@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.04
+Version 1.05
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -42,6 +42,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="text:Google Analytics ID" content="" />
         <meta name="if:Pimp This Theme" content="1" />
         <meta name="if:Show Social Accounts" content="1" />
+        <meta name="if:Show RSS in Navigation" content="1" />
         
         <meta name="text:Social Label" content="Elsewhere Online" />
         <meta name="text:AboutMe URL" content="" />
@@ -77,7 +78,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="icon" type="image/png" href="{Favicon}">
+        <link rel="shortcut icon" type="image/png" href="{Favicon}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
@@ -414,7 +416,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                 
                 {block:Photo}
                     <li class="post photo">
-                        <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a>
+                        
+                        {ImageOpenTag}
+                        	<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                        {ImageCloseTag}
                         {block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}              
@@ -601,6 +606,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 		            <li> <a href="/ask">{AskLabel}</a></li>
 		            {/block:AskEnabled}
                     <li> <a href="/archive">{lang:Archive}</a></li>  
+                    {block:IfShowRSSInNavigation}
+                    <li> <a href="{RSS}">{lang:RSS feed}</a></li>
+                    {/block:IfShowRSSInNavigation}
 		        </ul>
 		    </nav>			
             <hr class="clearfix" />
