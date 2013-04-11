@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.06dev
+Version 1.07
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -43,9 +43,13 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="if:Pimp This Theme" content="1" />
         <meta name="if:Show Social Accounts" content="1" />
         <meta name="if:Show RSS in Navigation" content="1" />
-        <meta name="if:Show Notes on Posts" content="1" />
+        <meta name="if:Show Archive in Navigation" content="1" />
+        <meta name="if:Show Search" content="1" />
+        <meta name="if:Show Portrait" content="1" />
         <meta name="if:Show Tags on Posts" content="1" />
+        <meta name="if:Show Notes on Posts" content="1" />
         
+                
         <meta name="text:Social Label" content="Elsewhere Online" />
         <meta name="text:AboutMe URL" content="" />
         <meta name="text:ADN URL" content="" />        
@@ -195,7 +199,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
             
             html { line-height: 1; }
-			
+    		
 			ol, ul { list-style: none; }
 			
 			table { border-collapse: collapse; border-spacing: 0; }
@@ -591,12 +595,12 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 
 		    <!--description-->
 		    <section id="description">
-
-		        <img src="{PortraitURL-128}"/>
-
+			    {block:IfShowPortrait}
+		        	<img src="{PortraitURL-128}"/>
+		        {/block:IfShowPortrait}
 		        {block:Description}
-		        {Description}
-		        {block:Description}
+		        	{Description}
+		        {/block:Description}
                 <hr class="clearfix" />
 		    </section>
             <hr class="clearfix" />
@@ -606,31 +610,35 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
     	    <nav id="menu">
 		        <ul>
 		            {block:HasPages}
-		            {block:Pages}
-		            <li> <a href="{URL}">{Label}</a></li>
-		            {/block:Pages}
+		            	{block:Pages}
+		            		<li> <a href="{URL}">{Label}</a></li>
+		            		{/block:Pages}
 		            {/block:HasPages}
 		            {block:SubmissionsEnabled}
-		            <li> <a href="/submit">{SubmitLabel}</a></li>
+		            	<li> <a href="/submit">{SubmitLabel}</a></li>
 		            {/block:SubmissionsEnabled}
 		            {block:AskEnabled}
-		            <li> <a href="/ask">{AskLabel}</a></li>
+		            	<li> <a href="/ask">{AskLabel}</a></li>
 		            {/block:AskEnabled}
-                    <li> <a href="/archive">{lang:Archive}</a></li>  
+		            {block:IfShowArchiveInNavigation}
+                    	<li> <a href="/archive">{lang:Archive}</a></li>
+                    {/block:IfShowArchiveInNavigation}	
                     {block:IfShowRSSInNavigation}
-                    <li> <a href="{RSS}">{lang:RSS feed}</a></li>
+                    	<li> <a href="{RSS}">{lang:RSS feed}</a></li>
                     {/block:IfShowRSSInNavigation}
 		        </ul>
 		    </nav>			
             <hr class="clearfix" />
             
             <!--search-->
-		    <form action="/search" method="get">
-            
-		        <input id="searchbox" type="text" name="q" value="{lang:Search}" onFocus="if(this.value == '{lang:Search}') {this.value = '';}" onBlur="if (this.value == '') {this.value = '{lang:Search}';}"/>
-		        <input id="searchbutton" type="submit" value="{lang:Search}"/>
-		    </form>
-            <hr class="clearfix" />
+            {block:IfShowSearch}
+			    <form action="/search" method="get">
+	            
+			        <input id="searchbox" type="text" name="q" value="{lang:Search}" onFocus="if(this.value == '{lang:Search}') {this.value = '';}" onBlur="if (this.value == '') {this.value = '{lang:Search}';}"/>
+			        <input id="searchbutton" type="submit" value="{lang:Search}"/>
+			    </form>
+			    <hr class="clearfix" />
+            {/block:IfShowSearch}
             </div>
             
             
