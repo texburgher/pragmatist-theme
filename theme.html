@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.05
+Version 1.06dev
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -43,6 +43,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="if:Pimp This Theme" content="1" />
         <meta name="if:Show Social Accounts" content="1" />
         <meta name="if:Show RSS in Navigation" content="1" />
+        <meta name="if:Show Notes on Posts" content="1" />
+        <meta name="if:Show Tags on Posts" content="1" />
         
         <meta name="text:Social Label" content="Elsewhere Online" />
         <meta name="text:AboutMe URL" content="" />
@@ -192,7 +194,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             
             html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
             
-        	html { line-height: 1; }
+            html { line-height: 1; }
 			
 			ol, ul { list-style: none; }
 			
@@ -531,7 +533,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
                         {/block:ContentSource}                    
 	            	</p>
-                    <!--tags-->                        
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
                     {block:HasTags}
                     <p class="tags">
                     {lang:Tagged}:
@@ -540,16 +543,24 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                     {/block:Tags}
                     </p>
                     {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
                     <!--permalink and notes-->
                     <p class="permalinks">
                     {block:Date} 
     	            <a href="{Permalink}">Posted {TimeAgo}</a>
                     {/block:Date}
-		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
-		            </p>
+                    
+                    {block:IfShowNotesOnPosts}
                     {block:PostNotes}
-                    	{PostNotes}
-                    {/block:PostNotes} 
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:PostNotes}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
 	            </div>
                 <!--end metadata-->                
                 
