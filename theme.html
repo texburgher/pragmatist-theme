@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.07
+Version 1.08
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -48,6 +48,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="if:Show Portrait" content="1" />
         <meta name="if:Show Tags on Posts" content="1" />
         <meta name="if:Show Notes on Posts" content="1" />
+        <meta name="if:Full Width Photos" content="1" />
+        <meta name="text:Twitter Widget Code" content="" />
         
                 
         <meta name="text:Social Label" content="Elsewhere Online" />
@@ -75,6 +77,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="text:Stumble Upon URL" content="" />        
         <meta name="text:Tent URL" content="" />
         <meta name="text:Trip Advisor URL" content="" />
+        <meta name="text:Tumblr URL" content="" />
         <meta name="text:Twitter URL" content="" /> 
         <meta name="text:Vimeo URL" content="" />
         <meta name="text:Yelp URL" content="" />
@@ -93,7 +96,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
     
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/oSDmjml1e/modernizr-2.6.1.min.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/cwPmjmm7s/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/d0Kmjrh0w/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/7RDmlba9j/jquery.fitvids.js"></script>
 
       
         <!--theme styles -->        
@@ -199,7 +202,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
             
             html { line-height: 1; }
-    		
+            
 			ol, ul { list-style: none; }
 			
 			table { border-collapse: collapse; border-spacing: 0; }
@@ -274,7 +277,11 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			.photoset .caption { margin-top: -0.5em; }
 			
-			.text img, .photo img, .panorama img, .quote img, .link img { display: block; width:94%; padding: 3%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
+			.text img, .photo img, .panorama img, .quote img, .link img { display: block; max-width:96%; padding: 2%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
+
+            {block:IfFullWidthPhotos}
+            .text img, .photo img, .panorama img, .quote img, .link img { width:94%; }
+            {/block:IfFullWidthPhotos}
 			
 			.photoset, .audio, .video { width: 100%; margin: 0 auto .5em auto; }
 			
@@ -742,6 +749,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:IfTripAdvisorURL}
                         <li><a href="{text:Trip Advisor URL}"><img src="http://static.tumblr.com/o6knfw4/RWRml1xzd/fc-webicon-tripadvisor-m.png" /></a></li>
                         {/block:IfTripAdvisorURL}                          
+                                        
+                        {block:IfTumblrURL}
+                        <li><a href="{text:Tumblr URL}"><img src="http://static.tumblr.com/o6knfw4/xk9mlo8ob/fc-webicon-tumblr-m.png" /></a></li>
+                        {/block:IfTumblrURL}  
                         
                         {block:IfTwitterURL}
                         <li><a href="{text:Twitter URL}"><img src="http://static.tumblr.com/o6knfw4/X65ml1xzq/fc-webicon-twitter-m.png" /></a></li>
@@ -766,18 +777,18 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                     <hr class="clearfix" />
                 </div>
             {/block:IfShowSocialAccounts}
-            
+         
+            <!-- recent tweets probably-->
+            {text:Twitter Widget Code}
 
             {block:IfPimpThisTheme} <!-- theme plug -->
                 <div id="themepimp">
-                    <a href="http://pragmatist-theme.tumblr.com/download"><strong>Do you like my theme?</strong><br /><img src="http://static.tumblr.com/o6knfw4/OTqmk0x8d/pimp-my-theme.png" /><br />Go on. Take it. It's free.
+                    <a href="http://www.tumblr.com/theme/37021"><strong>Do you like my theme?</strong><br /><img src="http://static.tumblr.com/o6knfw4/OTqmk0x8d/pimp-my-theme.png" /><br />Go on. Take it. It's free.
                     </a>
                 </div>
                 <hr class="clearfix" />
             {/block:IfPimpThisTheme}   
             
-
-
             {block:IfShowFollowing} <!-- people I follow -->
                 <div class="following">
                     {text:Following label}
@@ -847,6 +858,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
     </script>
-	
+    
+    {block:Twitter}
+        <script type="text/javascript" src="/tweets.js"></script>
+    {/block:Twitter}
+    
     </body>
 </html>
