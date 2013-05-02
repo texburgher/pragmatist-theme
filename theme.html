@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.08
+Version 1.10
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -19,7 +19,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         
         <!--configurable options -->
         <meta name="description" content="" />
-        <meta name="if:Show Following" content="1" />
+        <meta name="if:Show Following" content="" />
         <meta name="if:Hide Following on Smaller Screens" content="0" />
         <meta name="text:Following label" content="People I follow" />
         <meta name="text:H1 Bigger Screens" content="4.4em" />
@@ -35,22 +35,32 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="color:Menu Background Hover" content="#a60000" />
         <meta name="color:Menu Text" content="#666" />
         <meta name="color:Menu Text Hover" content="#fff" />
-        <meta name="if:Stop Tiling BG Image" content="0" />  
-        <meta name="if:Freeze BG Image" content="0" />
+        <meta name="if:Stop Tiling BG Image" content="" />  
+        <meta name="if:Freeze BG Image" content="" />
         <meta name="if:Show Footer" content="1" />
         <meta name="text:Copyright Owner" content="" />
         <meta name="text:Google Analytics ID" content="" />
-        <meta name="if:Pimp This Theme" content="1" />
-        <meta name="if:Show Social Accounts" content="1" />
-        <meta name="if:Show RSS in Navigation" content="1" />
-        <meta name="if:Show Archive in Navigation" content="1" />
-        <meta name="if:Show Search" content="1" />
-        <meta name="if:Show Portrait" content="1" />
+        <meta name="text:Disqus Shortname" content="" />        
+        <meta name="if:Pimp This Theme" content="" />
+        <meta name="if:Show Social Accounts" content="" />
+        <meta name="if:Show RSS in Navigation" content="" />
+        <meta name="if:Show Archive in Navigation" content="" />
+        <meta name="if:Show Search" content="" />
+        <meta name="if:Show Portrait" content="" />
         <meta name="if:Show Tags on Posts" content="1" />
         <meta name="if:Show Notes on Posts" content="1" />
-        <meta name="if:Full Width Photos" content="1" />
+        <meta name="if:Full Width Photos" content="" />
         <meta name="text:Twitter Widget Code" content="" />
+        <meta name="text:Google Site Verification" content="" />
         
+        <meta name="if:Dashboard Only Text Posts" content="0" />
+        <meta name="if:Dashboard Only Photo Posts" content="0" />
+        <meta name="if:Dashboard Only Quote Posts" content="0" />
+        <meta name="if:Dashboard Only Link Posts" content="0" />
+        <meta name="if:Dashboard Only Chat Posts" content="0" />
+        <meta name="if:Dashboard Only Audio Posts" content="0" />
+        <meta name="if:Dashboard Only Video Posts" content="0" />                                                
+        <meta name="if:Dashboard Only Answer Posts" content="0" />                
                 
         <meta name="text:Social Label" content="Elsewhere Online" />
         <meta name="text:AboutMe URL" content="" />
@@ -85,7 +95,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="text:Zerply URL" content="" />
 
         
-        
+        <meta name="google-site-verification" content="{text:Google Site Verification}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/png" href="{Favicon}">
         <link rel="shortcut icon" type="image/png" href="{Favicon}">
@@ -203,7 +213,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             
             html { line-height: 1; }
             
-			ol, ul { list-style: none; }
+            ol, ul { list-style: none; }
 			
 			table { border-collapse: collapse; border-spacing: 0; }
 			
@@ -277,7 +287,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			.photoset .caption { margin-top: -0.5em; }
 			
-			.text img, .photo img, .panorama img, .quote img, .link img { display: block; max-width:96%; padding: 2%; background-color: {color:Image Border}; margin: 0 auto .5em auto; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
+			.text img, .photo img, .panorama img, .quote img, .link img { display: block; max-width:96%; padding: 2%; background-color: {color:Image Border}; margin: 0 auto .5em 0; box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); }
 
             {block:IfFullWidthPhotos}
             .text img, .photo img, .panorama img, .quote img, .link img { width:94%; }
@@ -373,7 +383,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			#searchbutton { display: none; visibility: hidden; -moz-border-radius: 1em; -webkit-border-radius: 1em; -ms-border-radius: 1em; border-radius: 1em; box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); padding: .1875em .8em; font-family: "SourceSansPro", sans-serif; font-size: .92em; height: auto; color: #666666; border: none; background-color: rgba(0, 0, 0, 0.1); -moz-transition: 0.075s ease-in-out; -o-transition: 0.075s ease-in-out; -webkit-transition: 0.075s ease-in-out; transition: 0.075s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
 			#searchbutton:hover { background-color: #a60000; color: white; }
-			
+			.search_query { font-style:italic; }
+            
             #description { margin-bottom:2em; }
             
             #themepimp { display:block; margin:2em 0; }
@@ -415,8 +426,25 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 	    <section class="col span8">
 
             <ol id="posts">
+            
+
+                {block:SearchPage}
+                    <li class="post text">
+            	        <h3>
+                            {block:NoSearchResults}
+                                {lang:Sorry no results for SearchQuery 2}
+                            {/block:NoSearchResults}
+                            {lang:Your search for SearchQuery returned SearchResultCount results 2}        
+                        </h3>
+                    </li>
+                    <br />
+                {/block:SearchPage}       
+                
+         
+            
                 {block:Posts}
 
+            {block:ifNotDashboardOnlyTextPosts}
                 {block:Text} 
 	                <li class="post text">
 	                    {block:Title}
@@ -424,20 +452,99 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {/block:Title}
                         {Body}
 	                </li>
+
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->  
                 {/block:Text}
-                
-                
+            {/block:ifNotDashboardOnlyTextPosts}                
+
+            {block:ifNotDashboardOnlyPhotoPosts}
                 {block:Photo}
                     <li class="post photo">
                         
-                        {ImageOpenTag}
+                        {LinkOpenTag}
                         	<img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                        {ImageCloseTag}
+                        {LinkCloseTag}
                         {block:Caption}
                             <div class="caption">{Caption}</div>
                         {/block:Caption}              
-                    </li>	            
-                {/block:Photo}  	
+                    </li>
+                    
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->                      
+                {/block:Photo}                 
 
                 {block:Panorama}
                     <li class="post panorama">
@@ -448,6 +555,45 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                             <div class="caption">{Caption}</div>
                         {/block:Caption}                                              
                     </li>
+
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->  
                 {/block:Panorama}
 
                 
@@ -458,9 +604,49 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                             <div class="caption">{Caption}</div>
                         {/block:Caption} 
                     </li>
+                    
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->                      
                 {/block:Photoset}
+            {/block:ifNotDashboardOnlyPhotoPosts} 
 
-
+            {block:ifNotDashboardOnlyQuotePosts} 
                 {block:Quote}
                     <li class="post quote">
                         <span class="{Length} quotation">{Quote}</span>
@@ -468,8 +654,49 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                             <div class="quotesource">{Source}</div>
                         {/block:Source}                        
                     </li>
-                {/block:Quote}
 
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->  
+                {/block:Quote}
+            {/block:ifNotDashboardOnlyQuotePosts} 
+            
+            {block:ifNotDashboardOnlyLinkPosts}             
                 {block:Link}
                     <li class="post link">
                         <a href="{URL}" {Target} class="link-title">{Name}</a>
@@ -477,8 +704,49 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                             <div class="description">{Description}</div>
                         {/block:Description}                        
                     </li>
-                {/block:Link}
 
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->  
+                {/block:Link}
+            {/block:ifNotDashboardOnlyLinkPosts} 
+            
+            {block:ifNotDashboardOnlyChatPosts} 
                 {block:Chat}
                     <li class="post chat">
                         {block:Title}
@@ -499,43 +767,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         <hr class="clearfix">    
                         </ul>                        
                     </li>
-                {/block:Chat}
 
-                {block:Video}
-                    <li class="post video">
-                        <div class="fitvids">{VideoEmbed-250}</div>
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}        
-                    </li>
-                {/block:Video}
-
-                {block:Audio}
-                    <li class="post audio">
-                        <div>{AudioPlayer}</div>
-                        <div class="fitauds">{AudioEmbed}</div>
-
-                        {block:Caption}
-                            <div class="caption">{Caption}</div>
-                        {/block:Caption}                          
-                    </li>
-                {/block:Audio}
-                
-                {block:Answer}
-                    <li class="post answer">
-                        <div>
-                            <h3><img src="{AskerPortraitURL-30}"/>
-                            {Asker} wrote...</h3>
-                        </div>
-                        <blockquote>
-                        {Question}
-                        </blockquote>
-                        <p class="answer">
-                        {Answer}
-                        </p>
-                    </li>
-                {/block:Answer}                
-                
                 <!--begin metadata -->                            
                 <div class="metadata">
                     <!--attribution-->
@@ -543,7 +775,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:ContentSource}
                         {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
                         {/block:ContentSource}                    
-	            	</p>
+                    </p>
                     <!--tags-->    
                     {block:IfShowTagsOnPosts}
                     {block:HasTags}
@@ -562,9 +794,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                     {/block:Date}
                     
                     {block:IfShowNotesOnPosts}
-                    {block:PostNotes}
+                    {block:NoteCount}
 		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
-                    {/block:PostNotes}
+                    {/block:NoteCount}
                     {/block:IfShowNotesOnPosts}
 		            </p>
                     {block:IfShowNotesOnPosts}
@@ -573,15 +805,177 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {/block:PostNotes} 
                     {/block:IfShowNotesOnPosts}
 	            </div>
-                <!--end metadata-->                
+                <!--end metadata-->  
+                {/block:Chat}
+            {/block:ifNotDashboardOnlyChatPosts} 
+
+            {block:ifNotDashboardOnlyVideoPosts} 
+                {block:Video}
+                    <li class="post video">
+                        <div class="fitvids">{VideoEmbed-250}</div>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}        
+                    </li>
+                    
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->                      
+                {/block:Video}
+            {/block:ifNotDashboardOnlyVideoPosts} 
+            
+            {block:ifNotDashboardOnlyAudioPosts}             
+                {block:Audio}
+                    <li class="post audio">
+                        <div>{AudioPlayer}</div>
+                        <div class="fitauds">{AudioEmbed}</div>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}                          
+                    </li>
+                    
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->                      
+                {/block:Audio}
+            {/block:ifNotDashboardOnlyAudioPosts} 
+            
+            {block:ifNotDashboardOnlyAnswerPosts}             
+                {block:Answer}
+                    <li class="post answer">
+                        <div>
+                            <h3><img src="{AskerPortraitURL-30}"/>
+                            {Asker} wrote...</h3>
+                        </div>
+                        <blockquote>
+                        {Question}
+                        </blockquote>
+                        <p class="answer">
+                        {Answer}
+                        </p>
+                    </li>
+                    
+                <!--begin metadata -->                            
+                <div class="metadata">
+                    <!--attribution-->
+                    <p class="source">
+                        {block:ContentSource}
+                        {lang:Source}:&nbsp;<a href="{SourceURL}">{SourceTitle}</a>
+                        {/block:ContentSource}                    
+                    </p>
+                    <!--tags-->    
+                    {block:IfShowTagsOnPosts}
+                    {block:HasTags}
+                    <p class="tags">
+                    {lang:Tagged}:
+                    {block:Tags}
+                        &nbsp;<a href="{TagURLChrono}">{Tag}</a>&nbsp;
+                    {/block:Tags}
+                    </p>
+                    {/block:HasTags}
+                    {/block:IfShowTagsOnPosts}
+
+
+                    
+                    <!--permalink and notes-->
+                    <p class="permalinks">
+                    {block:Date} 
+    	            <a href="{Permalink}">Posted {TimeAgo}</a>
+                    {/block:Date}
+                    
+                    {block:IfShowNotesOnPosts}
+                    {block:NoteCount}
+		            <a href="{Permalink}#notes">{NoteCountWithLabel}</a><br />
+                    {/block:NoteCount}
+                    {/block:IfShowNotesOnPosts}
+		            </p>
+                    {block:IfShowNotesOnPosts}
+                        {block:PostNotes}
+                    	    {PostNotes}
+                        {/block:PostNotes} 
+                    {/block:IfShowNotesOnPosts}
+	            </div>
+                <!--end metadata-->  
                 
+                {/block:Answer}                
+            {/block:ifNotDashboardOnlyAnswerPosts}   
+                                          
              {/block:Posts}
             </ol>
             <hr class="clearfix" />
-       
+            <!--consolidated metadata-->
 
-
-        
             <div class="pagination">
 				 {block:PreviousPage}
 				     <a class="alignleft" href="{PreviousPage}">&#171; Newer Posts</a>
