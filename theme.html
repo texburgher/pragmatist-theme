@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.10
+Version 1.13
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -38,9 +38,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="if:Stop Tiling BG Image" content="" />  
         <meta name="if:Freeze BG Image" content="" />
         <meta name="if:Show Footer" content="1" />
+        <meta name="if:Enable Fart Scroll" content="0" />
         <meta name="text:Copyright Owner" content="" />
-        <meta name="text:Google Analytics ID" content="" />
-        <meta name="text:Disqus Shortname" content="" />        
+        <meta name="text:Google Analytics ID" content="" />      
         <meta name="if:Pimp This Theme" content="" />
         <meta name="if:Show Social Accounts" content="" />
         <meta name="if:Show RSS in Navigation" content="" />
@@ -107,6 +107,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/oSDmjml1e/modernizr-2.6.1.min.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/cwPmjmm7s/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/7RDmlba9j/jquery.fitvids.js"></script>
+        <script type="text/javascript" src="http://texburgher.com/js/fartscroll.js"></script>        
 
       
         <!--theme styles -->        
@@ -699,7 +700,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             {block:ifNotDashboardOnlyLinkPosts}             
                 {block:Link}
                     <li class="post link">
-                        <a href="{URL}" {Target} class="link-title">{Name}</a>
+                        <a href="{URL}" {Target} class="link-title">☛ {Name}</a>
                         {block:Description}
                             <div class="description">{Description}</div>
                         {/block:Description}                        
@@ -1177,7 +1178,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 
             {block:IfPimpThisTheme} <!-- theme plug -->
                 <div id="themepimp">
-                    <a href="http://www.tumblr.com/theme/37021"><strong>Do you like my theme?</strong><br /><img src="http://static.tumblr.com/o6knfw4/OTqmk0x8d/pimp-my-theme.png" /><br />Go on. Take it. It's free.
+                    <a href="http://www.tumblr.com/theme/37021"><strong>Do you like my theme?</strong><br /><img src="http://static.tumblr.com/o6knfw4/efwmmsx7d/theme-pimp.png" /><br />Go on. Take it. It's free.
                     </a>
                 </div>
                 <hr class="clearfix" />
@@ -1236,10 +1237,18 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
             $('ul.chat li .label').each(function(){
                 $(this).text($(this).text().replace(':',''));
             });
-            
 	    });
-
 	</script>
+    
+    <!-- fartscroll.js is something The Onion made - https://github.com/theonion/fartscroll.js -->
+    {block:IfEnableFartScroll}
+    <script>
+        $(document).ready(function () {
+            //fartscroll
+            fartscroll(800);
+        })
+    </script>
+    {/block:IfEnableFartScroll}
     
     <script type="text/javascript">
 	  var _gaq = _gaq || [];
