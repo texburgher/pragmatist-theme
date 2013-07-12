@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.13
+Version 1.16
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -15,15 +15,15 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>{Title}</title>
+        <title>{block:TagPage}{Tag} - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         
         <!--configurable options -->
         <meta name="description" content="" />
         <meta name="if:Show Following" content="" />
         <meta name="if:Hide Following on Smaller Screens" content="0" />
         <meta name="text:Following label" content="People I follow" />
-        <meta name="text:H1 Bigger Screens" content="4.4em" />
-        <meta name="text:H1 Littler Screens" content="2.2em" />
+        <meta name="text:Title Bigger Screens" content="4.4em" />
+        <meta name="text:Title Littler Screens" content="2.2em" />
         <meta name="color:Body Background" content="" />
         <meta name="color:Body Text" content="#666" />
         <meta name="color:Link" content="#666" />
@@ -66,20 +66,29 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="text:AboutMe URL" content="" />
         <meta name="text:ADN URL" content="" />        
         <meta name="text:Behance URL" content="" />
+        <meta name="text:Branch URL" content="" />
+        <meta name="text:Creative Cloud URL" content="" />
         <meta name="text:Dribbble URL" content="" /> 
         <meta name="text:Facebook URL" content="" />
         <meta name="text:Flickr URL" content="" />
         <meta name="text:Foursquare URL" content="" />
         <meta name="text:GitHub URL" content="" />
+        <meta name="text:Goodreads URL" content="" />
         <meta name="text:Google Plus URL" content="" />
+        <meta name="text:Indiegogo URL" content="" />
         <meta name="text:Instagram URL" content="" />
+        <meta name="text:Instapaper URL" content="" />
+        <meta name="text:Kickstarter URL" content="" />
         <meta name="text:LastFM URL" content="" />
         <meta name="text:LinkedIn URL" content="" />
+        <meta name="text:Medium URL" content="" />
         <meta name="text:Orkut URL" content="" />
         <meta name="text:Pinterest URL" content="" />
         <meta name="text:PocketApp URL" content="" />
+        <meta name="text:Potluck URL" content="" />
         <meta name="text:Quora URL" content="" />
         <meta name="text:Rdio URL" content="" />
+        <meta name="text:Reddit URL" content="" />
         <meta name="text:Skitch URL" content="" />
         <meta name="text:Skype URL" content="" />
         <meta name="text:Spotify URL" content="" />
@@ -90,10 +99,11 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="text:Tumblr URL" content="" />
         <meta name="text:Twitter URL" content="" /> 
         <meta name="text:Vimeo URL" content="" />
+        <meta name="text:Wordpress URL" content="" />
+        <meta name="text:Yahoo URL" content="" />
         <meta name="text:Yelp URL" content="" />
         <meta name="text:YouTube URL" content="" />
-        <meta name="text:Zerply URL" content="" />
-
+        <meta name="text:Zerply URL" content="" /> 
         
         <meta name="google-site-verification" content="{text:Google Site Verification}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -277,11 +287,11 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			blockquote { margin-left: 1px; border-left: 2px dotted #999999; padding-left: 20px; }
 			@media screen and (max-width: 36em) { blockquote { padding-left: 12px; } }
 			
-			.text h3, .chat h3, .answer h3 { font-weight: 600; font-size: 2em; line-height: 120%; margin-bottom: .34em; }
-			.text h3 a, .chat h3 a, .answer h3 a { font-weight: 600; }
-			@media screen and (max-width: 36em) { .text h3, .chat h3, .answer h3 { font-size: 1.4em; line-height: 120%; } }
+			.text h1, .chat h1, .answer h1 { font-weight: 600; font-size: 2em; line-height: 120%; margin-bottom: .34em; }
+			.text h1 a, .chat h1 a, .answer h1 a { font-weight: 600; }
+			@media screen and (max-width: 36em) { .text h1, .chat h1, .answer h1 { font-size: 1.4em; line-height: 120%; } }
 			
-			.answer h3 { vertical-align: middle; }
+			.answer h1 { vertical-align: middle; }
 			.answer img { -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; vertical-align: middle; margin-bottom: .1em; }
 			
 			.audio .caption, .video .caption { margin-top: .5em; }
@@ -355,8 +365,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			.clearfix { clear: both; visibility: hidden; margin-before: 0; margin-after: 0; border-width: 0; -webkit-margin-before: 0; -webkit-margin-after: 0; }
 			
 			header { background-color: {color:Header Background}; -webkit-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -moz-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); -o-box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); box-shadow: inset 0px -1px 1px rgba(0, 0, 0, 0.1), 0px 1px 1px rgba(255, 255, 255, 0.7); text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
-			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: {text:H1 Littler Screens}; line-height: 100%; overflow:hidden; }
-			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: {text:H1 Bigger Screens}; } }
+			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: {text:Title Littler Screens}; line-height: 100%; overflow:hidden; }
+			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: {text:Title Bigger Screens}; } }
             
 			footer { background-color: #666666; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
 			footer p { margin-bottom: 0; color: #cccccc; font-size: .8em; float: left; }
@@ -431,12 +441,12 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 
                 {block:SearchPage}
                     <li class="post text">
-            	        <h3>
+            	        <h1>
                             {block:NoSearchResults}
                                 {lang:Sorry no results for SearchQuery 2}
                             {/block:NoSearchResults}
                             {lang:Your search for SearchQuery returned SearchResultCount results 2}        
-                        </h3>
+                        </h1>
                     </li>
                     <br />
                 {/block:SearchPage}       
@@ -449,7 +459,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                 {block:Text} 
 	                <li class="post text">
 	                    {block:Title}
-                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        <h1><a href="{Permalink}">{Title}</a></h1>
                         {/block:Title}
                         {Body}
 	                </li>
@@ -751,7 +761,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                 {block:Chat}
                     <li class="post chat">
                         {block:Title}
-                            <h3><a href="{Permalink}">{Title}</a></h3>
+                            <h1><a href="{Permalink}">{Title}</a></h1>
                         {/block:Title}
                         <ul class="chat">
                             {block:Lines}
@@ -916,8 +926,8 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                 {block:Answer}
                     <li class="post answer">
                         <div>
-                            <h3><img src="{AskerPortraitURL-30}"/>
-                            {Asker} wrote...</h3>
+                            <h1><img src="{AskerPortraitURL-30}"/>
+                            {Asker} wrote...</h1>
                         </div>
                         <blockquote>
                         {Question}
@@ -1059,7 +1069,15 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 
                         {block:IfBehanceURL}
                         <li><a href="{text:Behance URL}"><img src="http://static.tumblr.com/o6knfw4/CPOml1xcc/fc-webicon-behance-m.png" /></a></li>
-                        {/block:IfBehanceURL}  
+                        {/block:IfBehanceURL}
+                        
+                        {block:IfBranchURL}
+                        <li><a href="{text:Branch URL}"><img src="http://static.tumblr.com/o6knfw4/uFImptt3j/webicon-branch-m.png" /></a></li>
+                        {/block:IfBranchURL}                          
+
+                        {block:IfCreativeCloudURL}
+                        <li><a href="{text:Creative Cloud URL}"><img src="http://static.tumblr.com/o6knfw4/lTYmptt46/webicon-creativecloud-m.png" /></a></li>
+                        {/block:IfCreativeCloudURL}    
 
                         {block:IfDribbbleURL}
                         <li><a href="{text:Dribbble URL}"><img src="http://static.tumblr.com/o6knfw4/QGJml1xcs/fc-webicon-dribbble-m.png" /></a></li>
@@ -1080,14 +1098,30 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:IfGitHubURL}
                         <li><a href="{text:GitHub URL}"><img src="http://static.tumblr.com/o6knfw4/73Zml1xeb/fc-webicon-github-m.png" /></a></li>
                         {/block:IfGitHubURL}         
+
+                        {block:IfGoodreadsURL}
+                        <li><a href="{text:Goodreads URL}"><img src="http://static.tumblr.com/o6knfw4/dL8mptt4o/webicon-goodreads-m.png" /></a></li>
+                        {/block:IfGoodreadsURL}    
                         
                         {block:IfGooglePlusURL}
                         <li><a href="{text:Google Plus URL}"><img src="http://static.tumblr.com/o6knfw4/0iTml1xen/fc-webicon-googleplus-m.png" /></a></li>
                         {/block:IfGooglePlusURL}                          
                         
+                        {block:IfIndiegogoURL}
+                        <li><a href="{text:Indiegogo URL}"><img src="http://static.tumblr.com/o6knfw4/thTmptt54/webicon-indiegogo-m.png" /></a></li>
+                        {/block:IfIndiegogoURL}                          
+                        
                         {block:IfInstagramURL}
                         <li><a href="{text:Instagram URL}"><img src="http://static.tumblr.com/o6knfw4/IgIml1xf0/fc-webicon-instagram-m.png" /></a></li>
                         {/block:IfInstagramURL}                          
+
+                        {block:IfInstapaperURL}
+                        <li><a href="{text:Instapaper URL}"><img src="http://static.tumblr.com/o6knfw4/Exdmptt5j/webicon-instapaper-m.png" /></a></li>
+                        {/block:IfInstapaperURL}    
+
+                        {block:IfKickstarterURL}
+                        <li><a href="{text:Kickstarter URL}"><img src="http://static.tumblr.com/o6knfw4/fKcmptt5z/webicon-kickstarter-m.png" /></a></li>
+                        {/block:IfKickstarterURL}  
                         
                         {block:IfLastFMURL}
                         <li><a href="{text:LastFM URL}"><img src="http://static.tumblr.com/o6knfw4/129ml1xfb/fc-webicon-lastfm-m.png" /></a></li>
@@ -1095,7 +1129,11 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         
                         {block:IfLinkedInURL}
                         <li><a href="{text:LinkedIn URL}"><img src="http://static.tumblr.com/o6knfw4/MAiml1xfn/fc-webicon-linkedin-m.png" /></a></li>
-                        {/block:IfLinkedInURL}                          
+                        {/block:IfLinkedInURL}          
+                        
+                        {block:IfMediumURL}
+                        <li><a href="{text:Medium URL}"><img src="http://static.tumblr.com/o6knfw4/ghEmptt6d/webicon-medium-m.png" /></a></li>
+                        {/block:IfMediumURL}                                          
                         
                         {block:IfOrkutURL}
                         <li><a href="{text:Orkut URL}"><img src="http://static.tumblr.com/o6knfw4/SFPml1xg1/fc-webicon-orkut-m.png" /></a></li>
@@ -1108,6 +1146,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:IfPocketAppURL}
                         <li><a href="{text:PocketApp URL}"><img src="http://static.tumblr.com/o6knfw4/iqkml1xgr/fc-webicon-pocketapp-m.png" /></a></li>
                         {/block:IfPocketAppURL}                          
+
+                        {block:IfPotluckURL}
+                        <li><a href="{text:Potluck URL}"><img src="http://static.tumblr.com/o6knfw4/TK3mptt78/webicon-potluck-m.png" /></a></li>
+                        {/block:IfPotluckURL}  
                         
                         {block:IfQuoraURL}
                         <li><a href="{text:Quora URL}"><img src="http://static.tumblr.com/o6knfw4/8Fkml1xhi/fc-webicon-quora-m.png" /></a></li>
@@ -1116,6 +1158,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:IfRdioURL}
                         <li><a href="{text:Rdio URL}"><img src="http://static.tumblr.com/o6knfw4/Zwsml1xwe/fc-webicon-rdio-m.png" /></a></li>
                         {/block:IfRdioURL}                          
+
+                        {block:IfRedditURL}
+                        <li><a href="{text:Reddit URL}"><img src="http://static.tumblr.com/o6knfw4/5FFmptt7m/webicon-reddit-m.png" /></a></li>
+                        {/block:IfRedditURL}      
                         
                         {block:IfSkitchURL}
                         <li><a href="{text:Skitch URL}"><img src="http://static.tumblr.com/o6knfw4/nxfml1xx4/fc-webicon-skitch-m.png" /></a></li>
@@ -1156,6 +1202,14 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                         {block:IfVimeoURL}
                         <li><a href="{text:Vimeo URL}"><img src="http://static.tumblr.com/o6knfw4/97sml1y05/fc-webicon-vimeo-m.png" /></a></li>
                         {/block:IfVimeoURL}                          
+
+                        {block:IfWordpressURL}
+                        <li><a href="{text:Wordpress URL}"><img src="http://static.tumblr.com/o6knfw4/dUNmptt8f/webicon-wordpress-m.png" /></a></li>
+                        {/block:IfWordpressURL}
+
+                        {block:IfYahooURL}
+                        <li><a href="{text:Yahoo URL}"><img src="http://static.tumblr.com/o6knfw4/5epmptt8t/webicon-yahoo-m.png" /></a></li>
+                        {/block:IfYahooURL}  
                         
                         {block:IfYelpURL}
                         <li><a href="{text:Yelp URL}"><img src="http://static.tumblr.com/o6knfw4/pQAml1y0k/fc-webicon-yelp-m.png" /></a></li>
