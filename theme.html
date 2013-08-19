@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <!--
-Version 1.16
+Version 1.17
 The Pragmatist - a responsive theme for Tumblr
 Copyright 2013 Geoff Barnes | @texburgher | http://texburgher.com
 Social icons are CC-Attrib; attrib to http://fairheadcreative.com
@@ -35,6 +35,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="color:Menu Background Hover" content="#a60000" />
         <meta name="color:Menu Text" content="#666" />
         <meta name="color:Menu Text Hover" content="#fff" />
+        <meta name="color:Footer Background" content="#666666" />
+        <meta name="color:Footer Text" content="#cccccc" />
+        <meta name="color:Footer Link" content="#cccccc" />
+        <meta name="color:Footer Hover" content="#cccccc" />
         <meta name="if:Stop Tiling BG Image" content="" />  
         <meta name="if:Freeze BG Image" content="" />
         <meta name="if:Show Footer" content="1" />
@@ -368,9 +372,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			header h1 { font-family: "Lora", serif; padding: 12px 0 12px 0; color: #666666; font-weight: 600; font-size: {text:Title Littler Screens}; line-height: 100%; overflow:hidden; }
 			@media screen and (min-width: 36em) { header h1 { padding: 12px 0 18px 0; font-weight: 600; font-size: {text:Title Bigger Screens}; } }
             
-			footer { background-color: #666666; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
-			footer p { margin-bottom: 0; color: #cccccc; font-size: .8em; float: left; }
-			footer a { font-size: .8em; float: right; color: #cccccc; }
+			footer { background-color: {color:Footer Background}; display: block; height: auto; padding: 10px 0; position: fixed; bottom: 0; left: 0; right: 0; }
+			footer p { margin-bottom: 0; color: {color:Footer Text}; font-size: .8em; float: left; }
+			footer a { font-size: .8em; float: right; color: {color:Footer Link}; }
+			footer a:hover {color: {color:Footer Hover}; }
 			@media screen and (min-width: 36em) { footer { position: relative; clear: both; height: 44px; }
 			  footer a { display: none; visibility: hidden; } }
 			
