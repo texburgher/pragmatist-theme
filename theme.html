@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -17,6 +16,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>{block:TagPage}{Tag} - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
         
+        {block:Hidden}
         <!--configurable options -->
         <meta name="description" content="" />
         <meta name="if:Show Following" content="" />
@@ -35,10 +35,10 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <meta name="color:Menu Background Hover" content="#a60000" />
         <meta name="color:Menu Text" content="#666" />
         <meta name="color:Menu Text Hover" content="#fff" />
-        <meta name="color:Footer Background" content="#666666" />
-        <meta name="color:Footer Text" content="#cccccc" />
-        <meta name="color:Footer Link" content="#cccccc" />
-        <meta name="color:Footer Hover" content="#cccccc" />
+        <meta name="color:Footer Background" content="#666" />
+        <meta name="color:Footer Text" content="#ccc" />
+        <meta name="color:Footer Link" content="#ccc" />
+        <meta name="color:Footer Hover" content="#ccc" />
         <meta name="if:Stop Tiling BG Image" content="" />  
         <meta name="if:Freeze BG Image" content="" />
         <meta name="if:Show Footer" content="1" />
@@ -111,6 +111,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         
         <meta name="google-site-verification" content="{text:Google Site Verification}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/block:Hidden}
         <link rel="icon" type="image/png" href="{Favicon}">
         <link rel="shortcut icon" type="image/png" href="{Favicon}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
@@ -121,9 +122,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/oSDmjml1e/modernizr-2.6.1.min.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/cwPmjmm7s/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="http://static.tumblr.com/o6knfw4/7RDmlba9j/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="http://texburgher.com/js/fartscroll.js"></script>        
+        {block:IfEnableFartScroll}<script type="text/javascript" src="http://texburgher.com/js/fartscroll.js"></script>{/block:IfEnableFartScroll   
 
-      
+
         <!--theme styles -->        
         <style type="text/css">
 
@@ -263,7 +264,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			.alt { color: #fff; color: rgba(255, 255, 255, 0.9); letter-spacing: 0.05em; }
 			
-			ol#posts { list-style: none; }
+			#posts { list-style: none; }
 			
 			.metadata { font-size: .8em; }
 			
@@ -420,7 +421,7 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 			
 			.pagination a { display: block; padding: .5em .8em; background-color: rgba(0, 0, 0, 0.07); font-weight: 400; font-size: .9em; color: #888888; text-decoration: none; -moz-border-radius: 5px; -webkit-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; -moz-transition: 0.15s ease-in-out; -o-transition: 0.15s ease-in-out; -webkit-transition: 0.15s ease-in-out; transition: 0.15s ease-in-out; -moz-transition-property: background-color, color, text-shadow; -webkit-transition-property: background-color, color, text-shadow; -o-transition-property: background-color, color, text-shadow; transition-property: background-color, color, text-shadow; }
 			
-			.pagination a:hover { color: #666666; background-color: rgba(0, 0, 0, 0.1); box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); }
+			.pagination a:hover { color: #666; background-color: rgba(0, 0, 0, 0.1); box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9), inset 0px 1px 1px 1px rgba(0, 0, 0, 0.05); }
 			
 		{CustomCSS}
         
@@ -1232,8 +1233,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
                 </div>
             {/block:IfShowSocialAccounts}
          
-            <!-- recent tweets probably-->
+            {block:IfTwitterWidgetCode}<!-- recent tweets probably-->
             {text:Twitter Widget Code}
+	    {/block:IfTwitterWidgetCode}
 
             {block:IfPimpThisTheme} <!-- theme plug -->
                 <div id="themepimp">
@@ -1299,8 +1301,9 @@ Feature requests, bug reports, updates, and release notes at http://pragmatist-t
 	    });
 	</script>
     
-    <!-- fartscroll.js is something The Onion made - https://github.com/theonion/fartscroll.js -->
+    
     {block:IfEnableFartScroll}
+    <!-- fartscroll.js is something The Onion made - https://github.com/theonion/fartscroll.js -->
     <script>
         $(document).ready(function () {
             //fartscroll
